@@ -32,6 +32,16 @@
             
         
         {% endfor %}
+
+        Tags:
+        {% for tag in tags %}
+        <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+        {{ tag.name }}
+        </a>
+        {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+        </p>
+        
         
         {% include "pagination.html" with page=posts %}
         

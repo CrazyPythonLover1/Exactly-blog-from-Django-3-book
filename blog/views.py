@@ -14,7 +14,7 @@ from .models import Post
 def post_list(request, tag_slug=None):
     object_list = Post.published.all()
     tag = None
-
+    tags = Post.tags.all
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         object_list = object_list.filter(tags__in=[tag])
@@ -30,7 +30,8 @@ def post_list(request, tag_slug=None):
     'blog/post/list.html',
     {'page':page,
     'posts': posts,
-    'tag':tag})
+    'tag':tag,
+    'tags':tags})
 
 def post_detail(request, year,month,day,post):
     post = get_object_or_404(Post,slug=post,
