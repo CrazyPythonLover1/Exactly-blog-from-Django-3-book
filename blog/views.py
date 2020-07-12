@@ -45,6 +45,7 @@ def post_detail(request, year,month,day,post):
 
      # List of active comments for this particular post 
     comments = post.comments.filter(active=True)
+    tags = post.tags.all()
     new_comment = None
     if request.method == 'POST':
         # A Comment was Posted
@@ -64,6 +65,7 @@ def post_detail(request, year,month,day,post):
     return render(request, 'blog/post/detail.html',
                             {'post':post,
                             'similar_posts': similar_posts,
+                            'tags':tags,
                             'comments':comments,
                             'new_comment':new_comment,
                             'comment_form':comment_form})                           
