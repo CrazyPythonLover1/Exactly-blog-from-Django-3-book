@@ -3,54 +3,49 @@
 {% block title %}My Blog{% endblock %}
 {% block content %}
 
-<main>
-    <h1>My Blog</h1>
 
-{% if tag %}
-<h2>Posts tagged with "{{ tag.name }}"</h2>
-{% endif %}
-    <section>
-        {% for post in posts %}
-        <h2>
-            <a href="{{ post.get_absolute_url }}">
-                {{ post.title }}
-            </a>
-        </h2>
-        <p class="date">
-            Published {{ post.publish }} by {{ post.author }}
-        </p>
-        {{ post.body|markdown|truncatewords_html:30 }}
-        
-        <p class="tags">
-            Tags:
-            {% for tag in post.tags.all %}
-            <a href="{% url "blog:post_list_by_tag" tag.slug %}">
-            {{ tag.name }}
-            </a>
-            {% if not forloop.last %}, {% endif %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">My Blog</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+    </div>
+
+    {% if tag %}
+    <h2>Posts tagged with "{{ tag.name }}"</h2>
+    {% endif %}
+            {% for post in posts %}
+            <blockquote class="blockquote col-md-7" style="border: 1px solid #ddd; padding: 1rem; display: inline-block;">
+                <h2>
+                    <p class="mb-0"> 
+                        <a href="{{ post.get_absolute_url }}">
+                            {{ post.title }}
+                        </a> 
+                    </p>
+                </h2>
+                {{ post.body|markdown|truncatewords_html:30 }}
+                <footer class="blockquote-footer">Published {{ post.publish }} by <cite
+                        title="Source Title">{{ post.author }}</cite></footer>
+
+                        <p class="tags">
+                            Tags:
+                            {% for tag in post.tags.all %}
+                            <a href="{% url "blog:post_list_by_tag" tag.slug %}">
+                                {{ tag.name }}
+                            </a>
+                            {% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        </p>
+            </blockquote>
             {% endfor %}
-            </p>
-            
-        
-        {% endfor %}
 
-        Tags:
-        {% for tag in tags %}
-        <a href="{% url "blog:post_list_by_tag" tag.slug %}">
-        {{ tag.name }}
-        </a>
-        {% if not forloop.last %}, {% endif %}
-        {% endfor %}
-        </p>
-        
-        
+
         {% include "pagination.html" with page=posts %}
-        
-    </section>
+
 
     <aside>
-       
+
     </aside>
-</main>
+
 
 {% endblock %}
