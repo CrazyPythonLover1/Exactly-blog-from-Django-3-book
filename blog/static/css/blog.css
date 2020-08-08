@@ -1,5 +1,5 @@
 body { 
-    margin:0;
+    margin:0 0 1rem 0;
     padding:0;
     font-family:helvetica, sans-serif; 
 }
@@ -19,6 +19,15 @@ h2 {
     font-weight:normal;
     margin:30px 0 0;
 }
+.my-button{
+    color: #00abff;
+    border: 1px solid #00abff;
+}
+.my-button:hover{
+    color: white;
+    border: 1px solid #00abff;
+    background-image: linear-gradient(45deg, #00abff, #006eff);
+}
 
 #content { 
     float:left;
@@ -30,12 +39,13 @@ h2 {
     float:right;
     width:30%;
     padding:10px;
-    background:#efefef; 
+    background:#e3f6ff; 
     height:100%;
+    border-radius: 5px;
 }
 
 p.date { 
-    color:#ccc;
+    color:#555555;
     font-family: georgia, serif;
     font-size: 12px;
     font-style: italic; 
@@ -65,7 +75,7 @@ input, textarea {
 }
 input[type=submit] {
     font-weight:bold;
-    background:#00abff;
+    background-image: linear-gradient(45deg, #00abff, #006eff);
     color:#fff;
     padding:10px 20px;
     font-size:14px;

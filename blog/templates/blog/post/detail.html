@@ -42,10 +42,10 @@
     <h2>Your comment has been added.</h2>
   {% else %}
     <h2>Add a new comment</h2>
-    <form method="post">
+    <form  method="post">
       {{ comment_form.as_p }}
       {% csrf_token %}
-      <p><input type="submit" value="Add comment"></p>
+      <p><input class="form-control" type="submit" value="Add comment"></p>
     </form>
   {% endif %}
 {% endblock %}
