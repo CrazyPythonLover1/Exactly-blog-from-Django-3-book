@@ -1,7 +1,7 @@
 body { 
     margin:0 0 1rem 0;
     padding:0;
-    font-family:helvetica, sans-serif; 
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
 }
 
 a { 
@@ -26,7 +26,7 @@ h2 {
 .my-button:hover{
     color: white;
     border: 1px solid #00abff;
-    background-image: linear-gradient(45deg, #00abff, #006eff);
+    background-image: linear-gradient(45deg, #00abff, #006da3);
 }
 
 #content { 
@@ -75,11 +75,12 @@ input, textarea {
 }
 input[type=submit] {
     font-weight:bold;
-    background-image: linear-gradient(45deg, #00abff, #006eff);
+    background-image: linear-gradient(45deg, #00abff, #006da3);
     color:#fff;
     padding:10px 20px;
     font-size:14px;
-    text-transform:uppercase; 
+    text-transform:uppercase;
+    border-radius: 5px;
 }
 .errorlist { 
     color:#cc0033;
